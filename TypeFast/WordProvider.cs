@@ -8,7 +8,14 @@ namespace TypeFast
         public static string[] GetWords()
         {
             string words = File.ReadAllText(@"Resources\words.txt");
-            return words.Split('\n');
+            var splitWords =  words.Split('\n');
+
+            for (int i = 0; i < splitWords.Length; i++)
+            {
+                splitWords[i] = splitWords[i].TrimEnd();
+            }
+
+            return splitWords;
         }
     }
 }
